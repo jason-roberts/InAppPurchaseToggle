@@ -102,7 +102,9 @@
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Feature2.cs" />
     <Compile Include="Feature1.cs" />
+    <Compile Include="IInAppFeature.cs" />
     <Compile Include="ToggleToInAppOfferNameMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

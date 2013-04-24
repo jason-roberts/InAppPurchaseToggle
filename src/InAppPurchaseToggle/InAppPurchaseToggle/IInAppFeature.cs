@@ -1,6 +1,6 @@
 ﻿namespace InAppPurchaseToggle
 {
-    public class Feature1 : IInAppFeature
+    public interface IInAppFeature
     {
     }
 }

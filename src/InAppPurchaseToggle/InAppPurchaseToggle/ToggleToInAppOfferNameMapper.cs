@@ -2,9 +2,9 @@
 {
     public class ToggleToInAppOfferNameMapper
     {
-        public string Map(Feature1 testToggle)
+        public string Map(IInAppFeature toggle)
         {
-            return "Feature1";
+            return toggle.GetType().Name;
         }
     }
 }

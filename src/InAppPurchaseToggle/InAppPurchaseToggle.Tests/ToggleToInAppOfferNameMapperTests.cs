@@ -15,5 +15,17 @@ namespace InAppPurchaseToggle.Tests
 
             Assert.Equal("Feature1", mappedOfferName);
         }
+
+        [Fact]
+        public void ShouldMapUpperCaseName()
+        {
+            var sut = new ToggleToInAppOfferNameMapper();
+
+            var testToggle = new FEATURE2();
+
+            var mappedOfferName = sut.Map(testToggle);
+
+            Assert.Equal("FEATURE2", mappedOfferName);
+        }
     }
 }
