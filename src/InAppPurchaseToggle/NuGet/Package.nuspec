@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>InAppPurchaseToggle</id>
-    <version>1.0.1</version>
+    <version>1.1.0</version>
     <authors>Jason Roberts - dontcodetired.com</authors>
     <owners>Jason Roberts</owners>
     <licenseUrl>https://github.com/jason-roberts/InAppPurchaseToggle/blob/master/LICENSE.txt</licenseUrl>
@@ -10,7 +10,7 @@
     <iconUrl>https://raw.github.com/jason-roberts/InAppPurchaseToggle/master/Assets/logo.png</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>An simple library to simplify Windows 8 Store App in-app purchase query.</description>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>Simulated windows store gateways now work in debug mode</releaseNotes>
     <copyright>Copyright 2013 Jason Roberts</copyright>
     <tags>Windows Store Purchase in-app toggle winrt win8 Windows8 WindowsStore</tags>
   </metadata>
