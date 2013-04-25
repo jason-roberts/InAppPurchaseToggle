@@ -1,8 +1,8 @@
 ﻿namespace InAppPurchaseToggle
 {
-    public class ToggleToInAppOfferNameMapper
+    public class ToggleToInAppOfferNameMapper : IToggleToInAppOfferNameMapper
     {
-        public string Map(IInAppFeature toggle)
+        public string Map(ToggleBase toggle)
         {
             return toggle.GetType().Name;
         }

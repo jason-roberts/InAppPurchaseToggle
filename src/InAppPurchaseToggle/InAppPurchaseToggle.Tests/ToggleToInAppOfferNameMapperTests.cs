@@ -1,6 +1,7 @@
-﻿using Xunit;
+﻿using InAppPurchaseToggle.PortableCoreTests.TestFeatures;
+using Xunit;
 
-namespace InAppPurchaseToggle.Tests
+namespace InAppPurchaseToggle.PortableCoreTests
 {
     public class ToggleToInAppOfferNameMapperTests
     {

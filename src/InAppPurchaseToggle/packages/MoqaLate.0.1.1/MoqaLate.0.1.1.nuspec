@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>MoqaLate</id>
+    <version>0.1.1</version>
+    <title>MoqaLate</title>
+    <authors>Jason Roberts dontcodetired.com</authors>
+    <owners>Jason Roberts dontcodetired.com</owners>
+    <licenseUrl>http://moqalate.codeplex.com/license</licenseUrl>
+    <projectUrl>http://moqalate.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Mocking framework for Windows Phone 7</description>
+    <releaseNotes />
+    <copyright>Copyright 2012 Jason Roberts</copyright>
+    <language />
+    <tags>wp7 WindowsPhone7 mocking tdd testing</tags>
+  </metadata>
+</package>
