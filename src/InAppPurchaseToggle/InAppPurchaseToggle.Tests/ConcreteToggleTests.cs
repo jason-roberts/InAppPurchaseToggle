@@ -17,14 +17,15 @@ namespace InAppPurchaseToggle.Tests
 
 
         [Fact]
-        public void ShouldCallConfiguredGateway()
+        public void ShouldUseWindowsStoreGateway()
         {
-            var sut = new Feature1();
-
             var mockGateway = new WindowsStoreGatewayMoqaLate();
             mockGateway.LookupActiveStatusSetReturnValue(true);
 
-            sut.WindowsStoreGateway = mockGateway;
+            var sut = new Feature1
+                          {
+                              WindowsStoreGateway = mockGateway
+                          };
 
             var result = sut.IsPurchased;
 
@@ -32,18 +33,19 @@ namespace InAppPurchaseToggle.Tests
             Assert.True(result);
         }
 
+
         [Fact]
         public void ShouldMapName()
         {
-            var sut = new Feature1();
-
-            var mockGateway = new WindowsStoreGatewayMoqaLate();
             var mockNameMapper = new ToggleToInAppOfferNameMapperMoqaLate();
 
-            sut.WindowsStoreGateway = mockGateway;
-            sut.InAppOfferNameMapper = mockNameMapper;
+            var sut = new Feature1
+                          {
+                              WindowsStoreGateway = new WindowsStoreGatewayMoqaLate(),
+                              InAppOfferNameMapper = mockNameMapper
+                          };
 
-            var result = sut.IsPurchased;
+            var dontCare = sut.IsPurchased;
 
             Assert.True(mockNameMapper.MapWasCalledWith(sut));
         }

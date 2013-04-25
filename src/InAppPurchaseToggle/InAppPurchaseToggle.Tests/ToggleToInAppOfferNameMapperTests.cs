@@ -1,7 +1,7 @@
 ﻿using InAppPurchaseToggle.PortableCoreTests.TestFeatures;
 using Xunit;
 
-namespace InAppPurchaseToggle.PortableCoreTests
+namespace InAppPurchaseToggle.Tests
 {
     public class ToggleToInAppOfferNameMapperTests
     {
@@ -16,6 +16,7 @@ namespace InAppPurchaseToggle.PortableCoreTests
 
             Assert.Equal("Feature1", mappedOfferName);
         }
+
 
         [Fact]
         public void ShouldMapUpperCaseName()

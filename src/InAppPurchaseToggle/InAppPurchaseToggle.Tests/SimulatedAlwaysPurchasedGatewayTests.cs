@@ -13,6 +13,5 @@ namespace InAppPurchaseToggle.Tests
 
             Assert.True(sut.IsPurchased);
         }
-
    }
 }
