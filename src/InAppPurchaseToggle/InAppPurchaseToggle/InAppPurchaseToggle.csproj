@@ -103,11 +103,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ToggleBase.cs" />
     <Compile Include="ToggleToInAppOfferNameMapper.cs" />
-    <Compile Include="WindowsStore\SimulatedNeverPurchasedGateway.cs" />
-    <Compile Include="WindowsStore\CurrentAppSimulatorWindowsStoreGateway.cs" />
-    <Compile Include="WindowsStore\IWindowsStoreGateway.cs" />
-    <Compile Include="WindowsStore\RealWindowsStoreGateway.cs" />
-    <Compile Include="WindowsStore\SimulatedAlwaysPurchasedGateway.cs" />
+    <Compile Include="SimulatedNeverPurchasedGateway.cs" />
+    <Compile Include="CurrentAppSimulatorWindowsStoreGateway.cs" />
+    <Compile Include="IWindowsStoreGateway.cs" />
+    <Compile Include="RealWindowsStoreGateway.cs" />
+    <Compile Include="SimulatedAlwaysPurchasedGateway.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MoqaLateCommandLine\MoqaLate.exe" />

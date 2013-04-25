@@ -1,4 +1,4 @@
-﻿namespace InAppPurchaseToggle.WindowsStore
+﻿namespace InAppPurchaseToggle
 {
 #if DEBUG
 

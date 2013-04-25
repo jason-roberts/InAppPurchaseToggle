@@ -1,6 +1,4 @@
-﻿using InAppPurchaseToggle.WindowsStore;
-
-namespace InAppPurchaseToggle
+﻿namespace InAppPurchaseToggle
 {
     public abstract class ToggleBase
     {

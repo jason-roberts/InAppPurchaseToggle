@@ -1,4 +1,4 @@
-﻿using InAppPurchaseToggle.WindowsStore;
+﻿using InAppPurchaseToggle;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 

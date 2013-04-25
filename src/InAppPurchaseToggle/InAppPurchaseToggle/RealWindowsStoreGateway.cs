@@ -1,6 +1,6 @@
 ﻿using Windows.ApplicationModel.Store;
 
-namespace InAppPurchaseToggle.WindowsStore
+namespace InAppPurchaseToggle
 {
     public class RealWindowsStoreGateway : IWindowsStoreGateway
     {
