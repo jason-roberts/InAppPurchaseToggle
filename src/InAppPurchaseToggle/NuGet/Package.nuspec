@@ -7,7 +7,7 @@
     <owners>Jason Roberts</owners>
     <licenseUrl>https://github.com/jason-roberts/InAppPurchaseToggle/blob/master/LICENSE.txt</licenseUrl>
     <projectUrl>https://github.com/jason-roberts/InAppPurchaseToggle/wiki</projectUrl>
-    <iconUrl>https://github.com/jason-roberts/FeatureToggle/raw/master/etc/logo.png</iconUrl>
+    <iconUrl>https://raw.github.com/jason-roberts/InAppPurchaseToggle/master/Assets/logo.png</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>An simple library to simplify Windows 8 Store App in-app purchase query.</description>
     <releaseNotes></releaseNotes>
