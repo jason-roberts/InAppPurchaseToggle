@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConcreteToggleTests.cs" />
+    <Compile Include="MoqaLateGeneratedMocks\ToggleToInAppOfferNameMapperMoqaLate.cs" />
     <Compile Include="SimulatedNeverPurchasedGatewayTests.cs" />
     <Compile Include="SimulatedAlwaysPurchasedGatewayTests.cs" />
     <Compile Include="MoqaLateGeneratedMocks\WindowsStoreGatewayMoqaLate.cs" />

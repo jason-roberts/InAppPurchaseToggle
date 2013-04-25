@@ -11,8 +11,8 @@ namespace InAppPurchaseToggle.Tests
         public void ShouldDefaultToRealWindowsStoreGateway()
         {
             var sut = new Feature1();
-            
-            Assert.IsType(typeof(RealWindowsStoreGateway), sut.WindowsStoreGateway);
+
+            Assert.IsType(typeof (RealWindowsStoreGateway), sut.WindowsStoreGateway);
         }
 
 
@@ -21,31 +21,31 @@ namespace InAppPurchaseToggle.Tests
         {
             var sut = new Feature1();
 
-            var mockg = new WindowsStoreGatewayMoqaLate();
-            mockg.LookupActiveStatusSetReturnValue(true);
-          
-            sut.WindowsStoreGateway = mockg;
+            var mockGateway = new WindowsStoreGatewayMoqaLate();
+            mockGateway.LookupActiveStatusSetReturnValue(true);
+
+            sut.WindowsStoreGateway = mockGateway;
 
             var result = sut.IsPurchased;
 
-            Assert.True(mockg.LookupActiveStatusWasCalledWith("Feature1"));
+            Assert.True(mockGateway.LookupActiveStatusWasCalledWith("Feature1"));
             Assert.True(result);
         }
 
-     //   [Fact]
-        //public void ShouldCallConfiguredGateway()
-        //{
-        //    var sut = new Feature1();
+        [Fact]
+        public void ShouldMapName()
+        {
+            var sut = new Feature1();
 
-        //    var mockg = new Mock<IWindowsStoreGateway>();
-        //    mockg.Setup(x => x.LookupActiveStatus("Feature1")).Returns(true);
+            var mockGateway = new WindowsStoreGatewayMoqaLate();
+            var mockNameMapper = new ToggleToInAppOfferNameMapperMoqaLate();
 
-        //    sut.WindowsStoreGateway = mockg.Object;
+            sut.WindowsStoreGateway = mockGateway;
+            sut.InAppOfferNameMapper = mockNameMapper;
 
-        //    var result = sut.IsPurchased;
+            var result = sut.IsPurchased;
 
-        //    mockg.Verify(x => x.LookupActiveStatus("Feature1"),Times.Once());
-        //    Assert.True(result);
-        //}
-   }
+            Assert.True(mockNameMapper.MapWasCalledWith(sut));
+        }
+    }
 }
