@@ -1,4 +1,4 @@
-﻿using InAppPurchaseToggle.PortableCoreTests.TestFeatures;
+﻿using InAppPurchaseToggle.Tests.TestFeatures;
 using Xunit;
 
 namespace InAppPurchaseToggle.Tests

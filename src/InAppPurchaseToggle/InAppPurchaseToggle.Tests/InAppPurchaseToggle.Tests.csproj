@@ -113,11 +113,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConcreteToggleTests.cs" />
+    <Compile Include="ConcreteRepeatToggleTests.cs" />
     <Compile Include="MoqaLateGeneratedMocks\ToggleToInAppOfferNameMapperMoqaLate.cs" />
     <Compile Include="SimulatedNeverPurchasedGatewayTests.cs" />
     <Compile Include="SimulatedAlwaysPurchasedGatewayTests.cs" />
     <Compile Include="MoqaLateGeneratedMocks\WindowsStoreGatewayMoqaLate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestFeatures\MultiFeatureWithNegativeRepeats.cs" />
+    <Compile Include="TestFeatures\MultiFeatureWithZeroRepeats.cs" />
+    <Compile Include="TestFeatures\MultiFeatureWith123Instances.cs" />
     <Compile Include="TestFeatures\Feature1.cs" />
     <Compile Include="TestFeatures\Feature2.cs" />
     <Compile Include="ToggleToInAppOfferNameMapperTests.cs" />

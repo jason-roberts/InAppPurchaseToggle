@@ -1,4 +1,4 @@
-﻿namespace InAppPurchaseToggle.PortableCoreTests.TestFeatures
+﻿namespace InAppPurchaseToggle.Tests.TestFeatures
 {
     public class Feature1 : ToggleBase
     {
