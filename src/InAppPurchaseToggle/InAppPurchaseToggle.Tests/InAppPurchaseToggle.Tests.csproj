@@ -114,6 +114,7 @@
   <ItemGroup>
     <Compile Include="ConcreteToggleTests.cs" />
     <Compile Include="ConcreteRepeatToggleTests.cs" />
+    <Compile Include="HandCodedMocks\WindowsStoreGatewayHandMock.cs" />
     <Compile Include="MoqaLateGeneratedMocks\RepeatToggleInstanceNumberConcatinatorMoqaLate.cs" />
     <Compile Include="MoqaLateGeneratedMocks\ToggleToInAppOfferNameMapperMoqaLate.cs" />
     <Compile Include="NameUnderscoreNumberFormatterTests.cs" />

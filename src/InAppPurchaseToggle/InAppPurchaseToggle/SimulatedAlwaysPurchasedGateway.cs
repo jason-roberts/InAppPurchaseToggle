@@ -7,7 +7,7 @@ namespace InAppPurchaseToggle
 #endif
     public class SimulatedAlwaysPurchasedGateway : IWindowsStoreGateway
     {
-        public bool LookupActiveStatus(string inAppOfferName)
+        public bool IsPurchased(string inAppOfferName)
         {
             return true;
         }

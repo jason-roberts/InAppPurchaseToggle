@@ -8,7 +8,7 @@ namespace InAppPurchaseToggle
 #endif
     public class CurrentAppSimulatorWindowsStoreGateway : IWindowsStoreGateway
     {
-        public bool LookupActiveStatus(string inAppOfferName)
+        public bool IsPurchased(string inAppOfferName)
         {
             var licenseInformation = CurrentAppSimulator.LicenseInformation;
 

@@ -17,7 +17,7 @@
             {
                 var inAppOfferName = InAppOfferNameMapper.Map(this.GetType());
 
-                var isOfferPurchased = WindowsStoreGateway.LookupActiveStatus(inAppOfferName);
+                var isOfferPurchased = WindowsStoreGateway.IsPurchased(inAppOfferName);
 
                 return isOfferPurchased;
             }

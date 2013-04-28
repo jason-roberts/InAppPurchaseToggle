@@ -4,6 +4,6 @@
     {
 
         // TODO: crap naming here
-        bool LookupActiveStatus(string inAppOfferName);
+        bool IsPurchased(string inAppOfferName);
     }
 }

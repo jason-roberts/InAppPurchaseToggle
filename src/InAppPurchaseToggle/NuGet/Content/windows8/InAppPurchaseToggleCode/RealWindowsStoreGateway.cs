@@ -4,7 +4,7 @@ namespace InAppPurchaseToggle
 {
     public class RealWindowsStoreGateway : IWindowsStoreGateway
     {
-        public bool LookupActiveStatus(string inAppOfferName)
+        public bool IsPurchased(string inAppOfferName)
         {
             var licenseInformation = CurrentApp.LicenseInformation;
 

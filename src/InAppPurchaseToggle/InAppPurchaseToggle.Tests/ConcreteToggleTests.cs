@@ -19,7 +19,7 @@ namespace InAppPurchaseToggle.Tests
         public void ShouldUseSpecifiedWindowsStoreGateway()
         {
             var mockGateway = new WindowsStoreGatewayMoqaLate();
-            mockGateway.LookupActiveStatusSetReturnValue(true);
+            mockGateway.IsPurchasedSetReturnValue(true);
 
             var sut = new Feature1
                           {
@@ -28,7 +28,7 @@ namespace InAppPurchaseToggle.Tests
 
             var result = sut.IsPurchased;
 
-            Assert.True(mockGateway.LookupActiveStatusWasCalledWith("Feature1"));
+            Assert.True(mockGateway.IsPurchasedWasCalledWith("Feature1"));
             Assert.True(result);
         }
 

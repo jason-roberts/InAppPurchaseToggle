@@ -37,10 +37,12 @@ namespace InAppPurchaseToggle
             }
         }
 
-        //protected virtual void InitNumberOfRepeats()
-        //{
-        //    _totalRepeatsAvailable = 0;
-        //}
+        public bool IsInstancePurchased(int instance)
+        {
+            var nameAndInstanceNumber = CreateStoreInAppOfferNameWithInstanceNumber(instance);
+
+            return WindowsStoreGateway.IsPurchased(nameAndInstanceNumber);
+        }
 
         public int GetTotalPurchased()
         {
@@ -48,11 +50,9 @@ namespace InAppPurchaseToggle
 
             for (var i = 0; i < _totalRepeatsAvailable; i++)
             {
-                var baseInAppOfferName = InAppOfferNameMapper.Map(this.GetType());
+                var nameAndInstanceNumber = CreateStoreInAppOfferNameWithInstanceNumber(i);
 
-                var nameAndInstanceNumber = ToggleInstanceNumberFormatter.Combine(baseInAppOfferName, i);
-
-                if (WindowsStoreGateway.LookupActiveStatus(nameAndInstanceNumber))
+                if (WindowsStoreGateway.IsPurchased(nameAndInstanceNumber))
                 {
                     total++;
                 }
@@ -60,15 +60,39 @@ namespace InAppPurchaseToggle
             return total;
         }
 
+        private string CreateStoreInAppOfferNameWithInstanceNumber(int instance)
+        {
+            var baseInAppOfferName = InAppOfferNameMapper.Map(this.GetType());
+
+            var nameAndInstanceNumber = ToggleInstanceNumberFormatter.Combine(baseInAppOfferName, instance);
+
+            return nameAndInstanceNumber;
+        }
+
         protected abstract int SetNumberOfRepeats();
 
+
+        public bool IsAllPurchased()
+        {
+            for (var i = 0; i < _totalRepeatsAvailable; i++)
+            {
+                var nameAndInstanceNumber = CreateStoreInAppOfferNameWithInstanceNumber(i);
+
+                if (! WindowsStoreGateway.IsPurchased(nameAndInstanceNumber))
+                {
+                    return false;
+                }
+            }
+          
+            return true;
+        }
         //public bool IsPurchased
         //{
         //    get
         //    {
         //        var inAppOfferName = InAppOfferNameMapper.Map(this);
 
-        //        var isOfferPurchased = WindowsStoreGateway.LookupActiveStatus(inAppOfferName);
+        //        var isOfferPurchased = WindowsStoreGateway.IsPurchased(inAppOfferName);
 
         //        return isOfferPurchased;
         //    }

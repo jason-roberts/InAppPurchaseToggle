@@ -7,7 +7,7 @@ namespace InAppPurchaseToggle
 #endif
     public class SimulatedNeverPurchasedGateway : IWindowsStoreGateway
     {
-        public bool LookupActiveStatus(string inAppOfferName)
+        public bool IsPurchased(string inAppOfferName)
         {
             return false;
         }

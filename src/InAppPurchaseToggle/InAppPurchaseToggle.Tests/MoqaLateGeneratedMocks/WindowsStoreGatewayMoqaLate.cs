@@ -5,50 +5,50 @@ public partial class WindowsStoreGatewayMoqaLate : IWindowsStoreGateway
 {
 
 
-// -------------- LookupActiveStatus ------------ 
+// -------------- IsPurchased ------------ 
 
-private bool _lookupActiveStatusReturnValue;
+private bool _isPurchasedReturnValue;
 
-        private int _lookupActiveStatusNumberOfTimesCalled;
+        private int _isPurchasedNumberOfTimesCalled;
 
-        public string LookupActiveStatusParameter_inAppOfferName_LastCalledWith;
+        public string IsPurchasedParameter_inAppOfferName_LastCalledWith;
         
-        public virtual void LookupActiveStatusSetReturnValue(bool value)
+        public virtual void IsPurchasedSetReturnValue(bool value)
         {
-            _lookupActiveStatusReturnValue = value;
+            _isPurchasedReturnValue = value;
         }    
 
 
-        public virtual bool LookupActiveStatusWasCalled()
+        public virtual bool IsPurchasedWasCalled()
 {
-   return _lookupActiveStatusNumberOfTimesCalled > 0;
+   return _isPurchasedNumberOfTimesCalled > 0;
 }
 
 
-public virtual bool LookupActiveStatusWasCalled(int times)
+public virtual bool IsPurchasedWasCalled(int times)
 {
-   return _lookupActiveStatusNumberOfTimesCalled == times;
+   return _isPurchasedNumberOfTimesCalled == times;
 }
 
 
-public virtual int LookupActiveStatusTimesCalled()
+public virtual int IsPurchasedTimesCalled()
 {
-   return _lookupActiveStatusNumberOfTimesCalled;
+   return _isPurchasedNumberOfTimesCalled;
 }
 
 
-public virtual bool LookupActiveStatusWasCalledWith(string inAppOfferName){
+public virtual bool IsPurchasedWasCalledWith(string inAppOfferName){
 return (
-inAppOfferName.Equals(LookupActiveStatusParameter_inAppOfferName_LastCalledWith) );
+inAppOfferName.Equals(IsPurchasedParameter_inAppOfferName_LastCalledWith) );
 }
  
 
-             public bool LookupActiveStatus(string inAppOfferName)
+             public bool IsPurchased(string inAppOfferName)
         {
-            _lookupActiveStatusNumberOfTimesCalled++;            
+            _isPurchasedNumberOfTimesCalled++;            
 
-            LookupActiveStatusParameter_inAppOfferName_LastCalledWith = inAppOfferName;
+            IsPurchasedParameter_inAppOfferName_LastCalledWith = inAppOfferName;
 
-            return _lookupActiveStatusReturnValue;
+            return _isPurchasedReturnValue;
         }}
 }
