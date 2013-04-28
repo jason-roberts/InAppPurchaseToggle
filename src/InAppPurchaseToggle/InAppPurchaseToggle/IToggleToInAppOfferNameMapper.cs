@@ -1,7 +1,9 @@
-﻿namespace InAppPurchaseToggle
+﻿using System;
+
+namespace InAppPurchaseToggle
 {
     public interface IToggleToInAppOfferNameMapper
     {
-        string Map(ToggleBase toggle);
+        string Map(Type concreteToggleType);
     }
 }

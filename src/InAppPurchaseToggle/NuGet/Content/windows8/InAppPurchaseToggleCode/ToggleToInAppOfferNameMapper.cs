@@ -1,10 +1,12 @@
-﻿namespace InAppPurchaseToggle
+﻿using System;
+
+namespace InAppPurchaseToggle
 {
     public class ToggleToInAppOfferNameMapper : IToggleToInAppOfferNameMapper
     {
-        public string Map(ToggleBase toggle)
+        public string Map(Type concreteToggleType)
         {
-            return toggle.GetType().Name;
+            return concreteToggleType.Name;
         }
     }
 }

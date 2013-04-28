@@ -10,13 +10,21 @@ namespace InAppPurchaseToggle
         {
             WindowsStoreGateway = new RealWindowsStoreGateway();
             InAppOfferNameMapper = new ToggleToInAppOfferNameMapper();
+            ToggleInstanceNumberFormatter = new NameUnderscoreNumberFormatter();
 // ReSharper disable DoNotCallOverridableMethodsInConstructor
             _totalRepeatsAvailable = SetNumberOfRepeats();
 // ReSharper restore DoNotCallOverridableMethodsInConstructor
         }
 
+
+        
+
         public IWindowsStoreGateway WindowsStoreGateway { get; set; }
         public IToggleToInAppOfferNameMapper InAppOfferNameMapper { get; set; }
+        public IRepeatToggleInstanceNumberConcatinator ToggleInstanceNumberFormatter { get; set; }
+
+        
+
         public int TotalRepeatsAvailable
         {
             get
@@ -34,6 +42,23 @@ namespace InAppPurchaseToggle
         //    _totalRepeatsAvailable = 0;
         //}
 
+        public int GetTotalPurchased()
+        {
+            int total = 0;
+
+            for (var i = 0; i < _totalRepeatsAvailable; i++)
+            {
+                var baseInAppOfferName = InAppOfferNameMapper.Map(this.GetType());
+
+                var nameAndInstanceNumber = ToggleInstanceNumberFormatter.Combine(baseInAppOfferName, i);
+
+                if (WindowsStoreGateway.LookupActiveStatus(nameAndInstanceNumber))
+                {
+                    total++;
+                }
+            }
+            return total;
+        }
 
         protected abstract int SetNumberOfRepeats();
 

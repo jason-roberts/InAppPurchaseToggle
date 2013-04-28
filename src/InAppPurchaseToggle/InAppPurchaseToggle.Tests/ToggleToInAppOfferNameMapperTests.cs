@@ -12,7 +12,7 @@ namespace InAppPurchaseToggle.Tests
 
             var testToggle = new Feature1();
 
-            var mappedOfferName = sut.Map(testToggle);
+            var mappedOfferName = sut.Map(testToggle.GetType());
 
             Assert.Equal("Feature1", mappedOfferName);
         }
@@ -25,7 +25,7 @@ namespace InAppPurchaseToggle.Tests
 
             var testToggle = new FEATURE2();
 
-            var mappedOfferName = sut.Map(testToggle);
+            var mappedOfferName = sut.Map(testToggle.GetType());
 
             Assert.Equal("FEATURE2", mappedOfferName);
         }

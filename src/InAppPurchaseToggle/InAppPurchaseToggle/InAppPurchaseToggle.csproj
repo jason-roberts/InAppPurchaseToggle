@@ -99,6 +99,8 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="IRepeatToggleToInAppOfferNameMapper.cs" />
+    <Compile Include="NameUnderscoreNumberFormatter.cs" />
     <Compile Include="RepeatToggleBase.cs" />
     <Compile Include="IToggleToInAppOfferNameMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

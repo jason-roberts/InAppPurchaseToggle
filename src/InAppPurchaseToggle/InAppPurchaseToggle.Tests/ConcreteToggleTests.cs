@@ -46,7 +46,7 @@ namespace InAppPurchaseToggle.Tests
 
             var dontCare = sut.IsPurchased;
 
-            Assert.True(mockNameMapper.MapWasCalledWith(sut));
+            Assert.True(mockNameMapper.MapWasCalledWith(sut.GetType()));
         }
     }
 }

@@ -17,6 +17,14 @@ namespace InAppPurchaseToggle.Tests
 
 
         [Fact]
+        public void ShouldDefaultToUnderscoreIntanceNumberFormatter()
+        {
+            var sut = new MultiFeatureWith123Instances();
+
+            Assert.IsType(typeof(NameUnderscoreNumberFormatter), sut.ToggleInstanceNumberFormatter);
+        }
+
+        [Fact]
         public void ShouldReturnTotalRepeatOffers()
         {
             var sut = new MultiFeatureWith123Instances();
@@ -44,25 +52,49 @@ namespace InAppPurchaseToggle.Tests
             Assert.Throws<InvalidOperationException>(() => { var totalOffers = sut.TotalRepeatsAvailable; });
         }
 
-        // runtime ex if derived toggle hasn't set (by overriding totatl) or is zero or 1??
 
-        //[Fact]
-        //public void ShouldCallSpecifiedWindowsStoreGatewayAsManyTimesAsThereAreOfferNumbers()
-        //{
-        //    var mockGateway = new WindowsStoreGatewayMoqaLate();
-        //    mockGateway.LookupActiveStatusSetReturnValue(true);
 
-        //    var sut = new MultiFeature1
-        //                  {
-        //                      WindowsStoreGateway = mockGateway
-        //                  };
 
-        //    var result = sut.IsPurchased;
 
-        //    Assert.True(mockGateway.LookupActiveStatusWasCalledWith("MultiFeature1"));
-        //    Assert.True(result);
-        //}
 
+         [Fact]
+        public void ShouldCallGatewayAsManyTimesAsThereAreOfferNumbersWhenCalculatingTotalPurchased()
+        {
+            var mockGateway = new WindowsStoreGatewayMoqaLate();
+            mockGateway.LookupActiveStatusSetReturnValue(true);
+
+            var sut = new MultiFeatureWith123Instances()
+                          {
+                              WindowsStoreGateway = mockGateway
+                          };
+
+            var total = sut.GetTotalPurchased();
+
+            Assert.Equal(123, mockGateway.LookupActiveStatusTimesCalled());
+        }
+
+
+         [Fact]
+         public void ShouldCallNameFormatterAsManyTimesAsThereAreOfferNumbersWhenCalculatingTotalPurchased()
+         {
+             var mockGateway = new WindowsStoreGatewayMoqaLate();
+             mockGateway.LookupActiveStatusSetReturnValue(true);
+
+             var mockConcat = new  RepeatToggleInstanceNumberConcatinatorMoqaLate();
+
+             var sut = new MultiFeatureWith123Instances()
+             {
+                 WindowsStoreGateway = mockGateway,
+                 ToggleInstanceNumberFormatter = mockConcat
+             };
+
+             var total = sut.GetTotalPurchased();
+
+             Assert.Equal(123, mockConcat.CombineTimesCalled());
+         }
+
+
+        // test defualt combiner
 
         //[Fact]
         //public void ShouldMapName()
