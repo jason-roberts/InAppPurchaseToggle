@@ -4,11 +4,11 @@
     internal class WindowsStoreGatewayHandMock : IWindowsStoreGateway
     {
         public bool DefaultIsPurchasedValue { get; set; }
-        public string OddOneOitInAppOfferNameToReturnNotDefaultValue { get; set; }
+        public string OddOneOutInAppOfferNameToReturnNotDefaultValue { get; set; }
 
         public bool IsPurchased(string inAppOfferName)
         {
-            if (inAppOfferName == OddOneOitInAppOfferNameToReturnNotDefaultValue)
+            if (inAppOfferName == OddOneOutInAppOfferNameToReturnNotDefaultValue)
             {
                 return !DefaultIsPurchasedValue;
             }

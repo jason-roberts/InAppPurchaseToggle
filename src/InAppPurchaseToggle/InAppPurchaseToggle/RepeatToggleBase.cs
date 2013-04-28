@@ -48,7 +48,7 @@ namespace InAppPurchaseToggle
         {
             int total = 0;
 
-            for (var i = 0; i < _totalRepeatsAvailable; i++)
+            for (var i = 1; i <= _totalRepeatsAvailable; i++)
             {
                 var nameAndInstanceNumber = CreateStoreInAppOfferNameWithInstanceNumber(i);
 
@@ -74,7 +74,7 @@ namespace InAppPurchaseToggle
 
         public bool IsAllPurchased()
         {
-            for (var i = 0; i < _totalRepeatsAvailable; i++)
+            for (var i = 1; i <= _totalRepeatsAvailable; i++)
             {
                 var nameAndInstanceNumber = CreateStoreInAppOfferNameWithInstanceNumber(i);
 
@@ -86,6 +86,24 @@ namespace InAppPurchaseToggle
           
             return true;
         }
+
+
+        public int GetNextLowestUnpurchasedInstance()
+        {
+            for (var i = 0; i < _totalRepeatsAvailable; i++)
+            {
+                var nameAndInstanceNumber = CreateStoreInAppOfferNameWithInstanceNumber(i);
+
+                if (!WindowsStoreGateway.IsPurchased(nameAndInstanceNumber))
+                {
+                    return i ;
+                }
+            }
+
+            return -1;
+        }
+
+
         //public bool IsPurchased
         //{
         //    get

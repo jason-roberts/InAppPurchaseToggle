@@ -136,7 +136,7 @@ namespace InAppPurchaseToggle.Tests
              var mockGateway = new WindowsStoreGatewayHandMock
                                    {
                                        DefaultIsPurchasedValue = true,
-                                       OddOneOitInAppOfferNameToReturnNotDefaultValue =
+                                       OddOneOutInAppOfferNameToReturnNotDefaultValue =
                                            "MultiFeatureWith123Instances_99"
                                    };
 
@@ -167,6 +167,44 @@ namespace InAppPurchaseToggle.Tests
              Assert.True(allPurchased);
          }
 
+
+
+         [Fact]
+         public void ShouldCalculateNextLowestUnPurchased()
+         {
+             var mockGateway = new WindowsStoreGatewayHandMock
+             {
+                 DefaultIsPurchasedValue = true,
+                 OddOneOutInAppOfferNameToReturnNotDefaultValue =
+                     "MultiFeatureWith123Instances_99"
+             };
+
+             var sut = new MultiFeatureWith123Instances()
+             {
+                 WindowsStoreGateway = mockGateway
+             };
+
+             var nextUnpurchasedInstance = sut.GetNextLowestUnpurchasedInstance();
+
+             Assert.Equal(99, nextUnpurchasedInstance);
+         }
+
+
+         [Fact]
+         public void ShouldCalculateNextLowestUnPurchasedWhenAllHaveBeenPurchased()
+         {
+             var mockGateway = new WindowsStoreGatewayMoqaLate();
+             mockGateway.IsPurchasedSetReturnValue(true);
+
+             var sut = new MultiFeatureWith123Instances()
+             {
+                 WindowsStoreGateway = mockGateway
+             };
+
+             var nextUnpurchasedInstance = sut.GetNextLowestUnpurchasedInstance();
+
+             Assert.Equal(-1, nextUnpurchasedInstance);
+         }
         // test defualt combiner
 
         //[Fact]
