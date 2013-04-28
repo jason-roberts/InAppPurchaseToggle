@@ -205,22 +205,7 @@ namespace InAppPurchaseToggle.Tests
 
              Assert.Equal(-1, nextUnpurchasedInstance);
          }
-        // test defualt combiner
 
-        //[Fact]
-        //public void ShouldMapName()
-        //{
-        //    var mockNameMapper = new ToggleToInAppOfferNameMapperMoqaLate();
 
-        //    var sut = new Feature1
-        //                  {
-        //                      WindowsStoreGateway = new WindowsStoreGatewayMoqaLate(),
-        //                      InAppOfferNameMapper = mockNameMapper
-        //                  };
-
-        //    var dontCare = sut.IsPurchased;
-
-        //    Assert.True(mockNameMapper.MapWasCalledWith(sut));
-        //}
     }
 }
