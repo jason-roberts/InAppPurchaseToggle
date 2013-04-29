@@ -1,6 +1,6 @@
 ﻿namespace InAppPurchaseToggle.Tests.ConcreteTestToggles
 {
-    public class Feature1 : ToggleBase
+    public class Feature1 : SinglePurchaseToggleBase
     {
     }
 }

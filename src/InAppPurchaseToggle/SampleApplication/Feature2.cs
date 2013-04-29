@@ -2,5 +2,5 @@
 
 namespace SampleApplication
 {
-    class Feature2 : ToggleBase {}
+    class Feature2 : SinglePurchaseToggleBase {}
 }

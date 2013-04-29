@@ -2,16 +2,16 @@
 
 namespace InAppPurchaseToggle.Tests.ConcreteTestToggles
 {
-    public class MultiFeatureWithNonDefualtFormatter : RepeatToggleBase
+    public class MultiFeatureWithNonDefualtFormatter : RepeatPurchaseToggleBase
     {
         protected override int SetNumberOfRepeats()
         {
             return 1;
         }
 
-        protected override IRepeatToggleInstanceNumberConcatinator SetInstanceNumberFormatter()
+        protected override IRepeatPurchaseToggleNameInstanceFormatter SetNameInstanceFormatter()
         {
-            return new RepeatToggleInstanceNumberConcatinatorMoqaLate();
+            return new RepeatPurchaseToggleNameInstanceFormatterMoqaLate();
         }
     }
 }

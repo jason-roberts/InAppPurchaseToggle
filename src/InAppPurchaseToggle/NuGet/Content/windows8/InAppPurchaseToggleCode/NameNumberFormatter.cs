@@ -1,8 +1,8 @@
 ﻿namespace InAppPurchaseToggle
 {
-    public class NameNumberFormatter: IRepeatToggleInstanceNumberConcatinator
+    public class NameNumberFormatter: IRepeatPurchaseToggleNameInstanceFormatter
     {
-        public string Combine(string toggleName, int instanceNumber)
+        public string Format(string toggleName, int instanceNumber)
         {
             return toggleName + instanceNumber;
         }

@@ -2,18 +2,18 @@
 
 namespace InAppPurchaseToggle
 {
-    public abstract class RepeatToggleBase
+    public abstract class RepeatPurchaseToggleBase
     {
         private readonly int _totalRepeatsAvailable;
 
-        protected RepeatToggleBase()
+        protected RepeatPurchaseToggleBase()
         {
             WindowsStoreGateway = new RealWindowsStoreGateway();
             InAppOfferNameMapper = new ToggleToInAppOfferNameMapper();
             
 // ReSharper disable DoNotCallOverridableMethodsInConstructor
             _totalRepeatsAvailable = SetNumberOfRepeats();
-            ToggleInstanceNumberFormatter = SetInstanceNumberFormatter();
+            NameInstanceFormatter = SetNameInstanceFormatter();
 // ReSharper restore DoNotCallOverridableMethodsInConstructor
 
             if (_totalRepeatsAvailable < 1)
@@ -22,13 +22,13 @@ namespace InAppPurchaseToggle
                     "A repeat toggle must have more than zero instances. Ensure you have correctly implemented the SetNumberOfRepeats method in your concrete toggle.");
             }
 
-            if (ToggleInstanceNumberFormatter == null)
+            if (NameInstanceFormatter == null)
             {
                 throw new NullReferenceException("A custom formatter cannot be null.");
             }
         }
 
-        protected virtual IRepeatToggleInstanceNumberConcatinator SetInstanceNumberFormatter()
+        protected virtual IRepeatPurchaseToggleNameInstanceFormatter SetNameInstanceFormatter()
         {
             return  new NameUnderscoreNumberFormatter();
         }
@@ -36,7 +36,7 @@ namespace InAppPurchaseToggle
 
         public IWindowsStoreGateway WindowsStoreGateway { get; set; }
         public IToggleToInAppOfferNameMapper InAppOfferNameMapper { get; set; }
-        public IRepeatToggleInstanceNumberConcatinator ToggleInstanceNumberFormatter { get; set; }
+        public IRepeatPurchaseToggleNameInstanceFormatter NameInstanceFormatter { get; set; }
 
 
         public int TotalRepeatsAvailable
@@ -74,7 +74,7 @@ namespace InAppPurchaseToggle
         {
             var baseInAppOfferName = InAppOfferNameMapper.Map(GetType());
 
-            var nameAndInstanceNumber = ToggleInstanceNumberFormatter.Combine(baseInAppOfferName, instance);
+            var nameAndInstanceNumber = NameInstanceFormatter.Format(baseInAppOfferName, instance);
 
             return nameAndInstanceNumber;
         }

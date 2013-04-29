@@ -22,7 +22,7 @@ namespace InAppPurchaseToggle.Tests
         {
             var sut = new MultiFeatureWith123Instances();
 
-            Assert.IsType(typeof(NameUnderscoreNumberFormatter), sut.ToggleInstanceNumberFormatter);
+            Assert.IsType(typeof(NameUnderscoreNumberFormatter), sut.NameInstanceFormatter);
         }
 
         [Fact]
@@ -73,12 +73,12 @@ namespace InAppPurchaseToggle.Tests
              var mockGateway = new WindowsStoreGatewayMoqaLate();
              mockGateway.IsPurchasedSetReturnValue(true);
 
-             var mockConcat = new  RepeatToggleInstanceNumberConcatinatorMoqaLate();
+             var mockConcat = new  RepeatPurchaseToggleNameInstanceFormatterMoqaLate();
 
              var sut = new MultiFeatureWith123Instances()
              {
                  WindowsStoreGateway = mockGateway,
-                 ToggleInstanceNumberFormatter = mockConcat
+                 NameInstanceFormatter = mockConcat
              };
 
              sut.GetTotalPurchased();
@@ -207,9 +207,9 @@ namespace InAppPurchaseToggle.Tests
                  WindowsStoreGateway = mockGateway
              };
 
-             var confuguredFormatter = sut.ToggleInstanceNumberFormatter;
+             var confuguredFormatter = sut.NameInstanceFormatter;
 
-             Assert.IsType(typeof(RepeatToggleInstanceNumberConcatinatorMoqaLate), confuguredFormatter);
+             Assert.IsType(typeof(RepeatPurchaseToggleNameInstanceFormatterMoqaLate), confuguredFormatter);
          }
 
 

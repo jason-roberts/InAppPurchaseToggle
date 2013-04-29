@@ -102,10 +102,10 @@
     <Compile Include="NameNumberFormatter.cs" />
     <Compile Include="IRepeatToggleToInAppOfferNameMapper.cs" />
     <Compile Include="NameUnderscoreNumberFormatter.cs" />
-    <Compile Include="RepeatToggleBase.cs" />
+    <Compile Include="RepeatPurchaseToggleBase.cs" />
     <Compile Include="IToggleToInAppOfferNameMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ToggleBase.cs" />
+    <Compile Include="SinglePurchaseToggleBase.cs" />
     <Compile Include="ToggleToInAppOfferNameMapper.cs" />
     <Compile Include="SimulatedNeverPurchasedGateway.cs" />
     <Compile Include="CurrentAppSimulatorWindowsStoreGateway.cs" />

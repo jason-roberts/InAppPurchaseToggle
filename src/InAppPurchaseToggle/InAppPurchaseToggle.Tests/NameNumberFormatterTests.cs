@@ -9,7 +9,7 @@ namespace InAppPurchaseToggle.Tests
         {
             var sut = new NameNumberFormatter();
 
-            var inAppOfferFullName = sut.Combine("Coin", 34);
+            var inAppOfferFullName = sut.Format("Coin", 34);
 
             Assert.Equal("Coin34", inAppOfferFullName);
         }

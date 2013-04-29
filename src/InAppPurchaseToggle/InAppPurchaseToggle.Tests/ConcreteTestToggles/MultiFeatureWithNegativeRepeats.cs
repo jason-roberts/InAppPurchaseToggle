@@ -1,6 +1,6 @@
 ﻿namespace InAppPurchaseToggle.Tests.ConcreteTestToggles
 {
-    public class MultiFeatureWithNegativeRepeats : RepeatToggleBase
+    public class MultiFeatureWithNegativeRepeats : RepeatPurchaseToggleBase
     {
         protected override int SetNumberOfRepeats()
         {

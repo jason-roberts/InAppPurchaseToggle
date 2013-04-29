@@ -1,13 +1,13 @@
 ﻿namespace InAppPurchaseToggle.Tests.ConcreteTestToggles
 {
-    public class MultiFeatureWithNullFormatter : RepeatToggleBase
+    public class MultiFeatureWithNullFormatter : RepeatPurchaseToggleBase
     {
         protected override int SetNumberOfRepeats()
         {
             return 1;
         }
 
-        protected override IRepeatToggleInstanceNumberConcatinator SetInstanceNumberFormatter()
+        protected override IRepeatPurchaseToggleNameInstanceFormatter SetNameInstanceFormatter()
         {
             return null;
         }

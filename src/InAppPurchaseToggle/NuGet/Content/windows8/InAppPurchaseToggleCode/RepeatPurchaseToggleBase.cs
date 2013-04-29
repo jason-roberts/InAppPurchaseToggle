@@ -2,11 +2,11 @@
 
 namespace InAppPurchaseToggle
 {
-    public abstract class RepeatToggleBase
+    public abstract class RepeatPurchaseToggleBase
     {
         private readonly int _totalRepeatsAvailable;
 
-        protected RepeatToggleBase()
+        protected RepeatPurchaseToggleBase()
         {
             WindowsStoreGateway = new RealWindowsStoreGateway();
             InAppOfferNameMapper = new ToggleToInAppOfferNameMapper();

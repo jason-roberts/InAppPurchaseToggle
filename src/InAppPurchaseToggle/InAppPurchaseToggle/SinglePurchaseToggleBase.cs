@@ -1,8 +1,8 @@
 ﻿namespace InAppPurchaseToggle
 {
-    public abstract class ToggleBase
+    public abstract class SinglePurchaseToggleBase
     {
-        protected ToggleBase()
+        protected SinglePurchaseToggleBase()
         {
             WindowsStoreGateway = new RealWindowsStoreGateway();
             InAppOfferNameMapper = new ToggleToInAppOfferNameMapper();
