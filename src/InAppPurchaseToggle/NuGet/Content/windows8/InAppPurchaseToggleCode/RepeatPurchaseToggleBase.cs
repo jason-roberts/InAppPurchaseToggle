@@ -4,22 +4,22 @@ namespace InAppPurchaseToggle
 {
     public abstract class RepeatPurchaseToggleBase
     {
-        private readonly int _totalRepeatsAvailable;
+        private readonly int _availableStoreInstances;
 
         protected RepeatPurchaseToggleBase()
         {
-            WindowsStoreGateway = new RealWindowsStoreGateway();
-            InAppOfferNameMapper = new ToggleToInAppOfferNameMapper();
+            StoreGateway = new RealStoreGateway();
+            StoreInAppOfferNameMapper = new SingleToggleToStoreInAppOfferNameMapper();
             
 // ReSharper disable DoNotCallOverridableMethodsInConstructor
-            _totalRepeatsAvailable = SetNumberOfRepeats();
+            _availableStoreInstances = SetAvailableStoreInstances();
             NameInstanceFormatter = SetNameInstanceFormatter();
 // ReSharper restore DoNotCallOverridableMethodsInConstructor
 
-            if (_totalRepeatsAvailable < 1)
+            if (_availableStoreInstances < 1)
             {
                 throw new InvalidOperationException(
-                    "A repeat toggle must have more than zero instances. Ensure you have correctly implemented the SetNumberOfRepeats method in your concrete toggle.");
+                    "A repeat toggle must have more than zero instances. Ensure you have correctly implemented the SetAvailableStoreInstances method in your concrete toggle.");
             }
 
             if (NameInstanceFormatter == null)
@@ -34,16 +34,16 @@ namespace InAppPurchaseToggle
         }
 
 
-        public IWindowsStoreGateway WindowsStoreGateway { get; set; }
-        public IToggleToInAppOfferNameMapper InAppOfferNameMapper { get; set; }
+        public IStoreGateway StoreGateway { get; set; }
+        public ISingleToggleToStoreInAppOfferNameMapper StoreInAppOfferNameMapper { get; set; }
         public IRepeatPurchaseToggleNameInstanceFormatter NameInstanceFormatter { get; set; }
 
 
-        public int TotalRepeatsAvailable
+        public int AvailableStoreInstances
         {
             get
             {      
-                return _totalRepeatsAvailable;
+                return _availableStoreInstances;
             }
         }
 
@@ -51,18 +51,18 @@ namespace InAppPurchaseToggle
         {
             var nameAndInstanceNumber = CreateStoreInAppOfferNameWithInstanceNumber(instance);
 
-            return WindowsStoreGateway.IsPurchased(nameAndInstanceNumber);
+            return StoreGateway.IsPurchased(nameAndInstanceNumber);
         }
 
         public int GetTotalPurchased()
         {
             int total = 0;
 
-            for (var i = 1; i <= _totalRepeatsAvailable; i++)
+            for (var i = 1; i <= _availableStoreInstances; i++)
             {
                 var nameAndInstanceNumber = CreateStoreInAppOfferNameWithInstanceNumber(i);
 
-                if (WindowsStoreGateway.IsPurchased(nameAndInstanceNumber))
+                if (StoreGateway.IsPurchased(nameAndInstanceNumber))
                 {
                     total++;
                 }
@@ -72,23 +72,23 @@ namespace InAppPurchaseToggle
 
         private string CreateStoreInAppOfferNameWithInstanceNumber(int instance)
         {
-            var baseInAppOfferName = InAppOfferNameMapper.Map(GetType());
+            var baseInAppOfferName = StoreInAppOfferNameMapper.Map(GetType());
 
             var nameAndInstanceNumber = NameInstanceFormatter.Format(baseInAppOfferName, instance);
 
             return nameAndInstanceNumber;
         }
 
-        protected abstract int SetNumberOfRepeats();
+        protected abstract int SetAvailableStoreInstances();
 
 
         public bool IsAllPurchased()
         {
-            for (var i = 1; i <= _totalRepeatsAvailable; i++)
+            for (var i = 1; i <= _availableStoreInstances; i++)
             {
                 var nameAndInstanceNumber = CreateStoreInAppOfferNameWithInstanceNumber(i);
 
-                if (! WindowsStoreGateway.IsPurchased(nameAndInstanceNumber))
+                if (! StoreGateway.IsPurchased(nameAndInstanceNumber))
                 {
                     return false;
                 }
@@ -100,11 +100,11 @@ namespace InAppPurchaseToggle
 
         public int GetNextLowestUnpurchasedInstance()
         {
-            for (var i = 0; i < _totalRepeatsAvailable; i++)
+            for (var i = 0; i < _availableStoreInstances; i++)
             {
                 var nameAndInstanceNumber = CreateStoreInAppOfferNameWithInstanceNumber(i);
 
-                if (!WindowsStoreGateway.IsPurchased(nameAndInstanceNumber))
+                if (!StoreGateway.IsPurchased(nameAndInstanceNumber))
                 {
                     return i;
                 }

@@ -99,19 +99,19 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="NameNumberFormatter.cs" />
+    <Compile Include="RepeatPurchaseNameInstanceFormatter.cs" />
     <Compile Include="IRepeatToggleToInAppOfferNameMapper.cs" />
     <Compile Include="NameUnderscoreNumberFormatter.cs" />
     <Compile Include="RepeatPurchaseToggleBase.cs" />
-    <Compile Include="IToggleToInAppOfferNameMapper.cs" />
+    <Compile Include="ISingleToggleToStoreInAppOfferNameMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SinglePurchaseToggleBase.cs" />
-    <Compile Include="ToggleToInAppOfferNameMapper.cs" />
-    <Compile Include="SimulatedNeverPurchasedGateway.cs" />
-    <Compile Include="CurrentAppSimulatorWindowsStoreGateway.cs" />
-    <Compile Include="IWindowsStoreGateway.cs" />
-    <Compile Include="RealWindowsStoreGateway.cs" />
-    <Compile Include="SimulatedAlwaysPurchasedGateway.cs" />
+    <Compile Include="SingleToggleToStoreInAppOfferNameMapper.cs" />
+    <Compile Include="SimulatedNeverPurchasedStoreGateway.cs" />
+    <Compile Include="CurrentAppSimulatorStoreGateway.cs" />
+    <Compile Include="IStoreGateway.cs" />
+    <Compile Include="RealStoreGateway.cs" />
+    <Compile Include="SimulatedAlwaysPurchasedStoreGateway.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MoqaLateCommandLine\MoqaLate.exe" />

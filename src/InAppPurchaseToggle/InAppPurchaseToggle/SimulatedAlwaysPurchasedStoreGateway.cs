@@ -5,7 +5,7 @@ namespace InAppPurchaseToggle
 #if DEBUG
     [Obsolete("Be careful not to accidentally use this in the final app")]
 #endif
-    public class SimulatedAlwaysPurchasedGateway : IStoreGateway
+    public class SimulatedAlwaysPurchasedStoreGateway : IStoreGateway
     {
         public bool IsPurchased(string inAppOfferName)
         {

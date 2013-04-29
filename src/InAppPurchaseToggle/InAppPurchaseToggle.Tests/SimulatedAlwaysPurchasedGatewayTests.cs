@@ -8,7 +8,7 @@ namespace InAppPurchaseToggle.Tests
         [Fact]
         public void ShouldAlwaysReturnInAppHasBeenPurchased()
         {
-            var sut = new Feature1 {WindowsStoreGateway = new SimulatedAlwaysPurchasedGateway()};
+            var sut = new Feature1 {StoreGateway = new SimulatedAlwaysPurchasedStoreGateway()};
 
             Assert.True(sut.IsPurchased);
         }

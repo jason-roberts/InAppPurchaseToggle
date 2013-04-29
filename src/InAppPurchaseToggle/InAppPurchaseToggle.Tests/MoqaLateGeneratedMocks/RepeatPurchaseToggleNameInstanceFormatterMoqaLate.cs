@@ -11,7 +11,7 @@ private string _formatReturnValue;
 
         private int _formatNumberOfTimesCalled;
 
-        public string FormatParameter_toggleName_LastCalledWith;public int FormatParameter_instanceNumber_LastCalledWith;
+        public string FormatParameter_storeInAppOfferBaseName_LastCalledWith;public int FormatParameter_repeatInstanceNumber_LastCalledWith;
         
         public virtual void FormatSetReturnValue(string value)
         {
@@ -37,18 +37,18 @@ public virtual int FormatTimesCalled()
 }
 
 
-public virtual bool FormatWasCalledWith(string toggleName, int instanceNumber){
+public virtual bool FormatWasCalledWith(string storeInAppOfferBaseName, int repeatInstanceNumber){
 return (
-toggleName.Equals(FormatParameter_toggleName_LastCalledWith)  && 
-instanceNumber.Equals(FormatParameter_instanceNumber_LastCalledWith) );
+storeInAppOfferBaseName.Equals(FormatParameter_storeInAppOfferBaseName_LastCalledWith)  && 
+repeatInstanceNumber.Equals(FormatParameter_repeatInstanceNumber_LastCalledWith) );
 }
  
 
-             public string Format(string toggleName, int instanceNumber)
+             public string Format(string storeInAppOfferBaseName, int repeatInstanceNumber)
         {
             _formatNumberOfTimesCalled++;            
 
-            FormatParameter_toggleName_LastCalledWith = toggleName;FormatParameter_instanceNumber_LastCalledWith = instanceNumber;
+            FormatParameter_storeInAppOfferBaseName_LastCalledWith = storeInAppOfferBaseName;FormatParameter_repeatInstanceNumber_LastCalledWith = repeatInstanceNumber;
 
             return _formatReturnValue;
         }}

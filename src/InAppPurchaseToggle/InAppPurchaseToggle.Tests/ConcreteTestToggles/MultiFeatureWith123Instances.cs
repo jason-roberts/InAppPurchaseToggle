@@ -2,7 +2,7 @@
 {
     public class MultiFeatureWith123Instances : RepeatPurchaseToggleBase
     {
-        protected override int SetNumberOfRepeats()
+        protected override int SetAvailableStoreInstances()
         {
             return 123;
         }

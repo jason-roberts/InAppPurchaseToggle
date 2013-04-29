@@ -44,11 +44,11 @@ instanceNumber.Equals(CombineParameter_instanceNumber_LastCalledWith) );
 }
  
 
-             public string Format(string toggleName, int instanceNumber)
+             public string Format(string storeInAppOfferBaseName, int repeatInstanceNumber)
         {
             _combineNumberOfTimesCalled++;            
 
-            CombineParameter_toggleName_LastCalledWith = toggleName;CombineParameter_instanceNumber_LastCalledWith = instanceNumber;
+            CombineParameter_toggleName_LastCalledWith = storeInAppOfferBaseName;CombineParameter_instanceNumber_LastCalledWith = repeatInstanceNumber;
 
             return _combineReturnValue;
         }}

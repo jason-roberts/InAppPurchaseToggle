@@ -2,7 +2,7 @@
 
 namespace InAppPurchaseToggle
 {
-    public class RealWindowsStoreGateway : IWindowsStoreGateway
+    public class RealStoreGateway : IStoreGateway
     {
         public bool IsPurchased(string inAppOfferName)
         {

@@ -8,7 +8,7 @@ namespace InAppPurchaseToggle.Tests
         [Fact]
         public void ShouldMapName()
         {
-            var sut = new ToggleToInAppOfferNameMapper();
+            var sut = new SingleToggleToStoreInAppOfferNameMapper();
 
             var testToggle = new Feature1();
 
@@ -21,7 +21,7 @@ namespace InAppPurchaseToggle.Tests
         [Fact]
         public void ShouldMapUpperCaseName()
         {
-            var sut = new ToggleToInAppOfferNameMapper();
+            var sut = new SingleToggleToStoreInAppOfferNameMapper();
 
             var testToggle = new FEATURE2();
 

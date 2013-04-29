@@ -13,7 +13,7 @@ namespace InAppPurchaseToggle.Tests
         {
             var sut = new MultiFeatureWith123Instances();
 
-            Assert.IsType(typeof (RealWindowsStoreGateway), sut.WindowsStoreGateway);
+            Assert.IsType(typeof (RealStoreGateway), sut.StoreGateway);
         }
 
 
@@ -30,7 +30,7 @@ namespace InAppPurchaseToggle.Tests
         {
             var sut = new MultiFeatureWith123Instances();
 
-            var totalOffers = sut.TotalRepeatsAvailable;
+            var totalOffers = sut.AvailableStoreInstances;
             
             Assert.Equal(123, totalOffers);
         }
@@ -53,12 +53,12 @@ namespace InAppPurchaseToggle.Tests
         [Fact]
         public void ShouldCallGatewayAsManyTimesAsThereAreOfferNumbersWhenCalculatingTotalPurchased()
         {
-            var mockGateway = new WindowsStoreGatewayMoqaLate();
+            var mockGateway = new StoreGatewayMoqaLate();
             mockGateway.IsPurchasedSetReturnValue(true);
 
             var sut = new MultiFeatureWith123Instances()
                           {
-                              WindowsStoreGateway = mockGateway
+                              StoreGateway = mockGateway
                           };
 
             sut.GetTotalPurchased();
@@ -70,14 +70,14 @@ namespace InAppPurchaseToggle.Tests
          [Fact]
          public void ShouldCallNameFormatterAsManyTimesAsThereAreOfferNumbersWhenCalculatingTotalPurchased()
          {
-             var mockGateway = new WindowsStoreGatewayMoqaLate();
+             var mockGateway = new StoreGatewayMoqaLate();
              mockGateway.IsPurchasedSetReturnValue(true);
 
              var mockConcat = new  RepeatPurchaseToggleNameInstanceFormatterMoqaLate();
 
              var sut = new MultiFeatureWith123Instances()
              {
-                 WindowsStoreGateway = mockGateway,
+                 StoreGateway = mockGateway,
                  NameInstanceFormatter = mockConcat
              };
 
@@ -90,12 +90,12 @@ namespace InAppPurchaseToggle.Tests
          [Fact]
          public void ShouldReturnIfSpecificInstanceHasBeenPurchased()
          {
-             var mockGateway = new WindowsStoreGatewayMoqaLate();
+             var mockGateway = new StoreGatewayMoqaLate();
              mockGateway.IsPurchasedSetReturnValue(true);
 
              var sut = new MultiFeatureWith123Instances()
              {
-                 WindowsStoreGateway = mockGateway
+                 StoreGateway = mockGateway
              };
 
              var isPurchased = sut.IsInstancePurchased(123);
@@ -123,7 +123,7 @@ namespace InAppPurchaseToggle.Tests
          [Fact]
          public void ShouldCalculateIfAllInstancesHaveNotBeenPurchased()
          {
-             var mockGateway = new WindowsStoreGatewayHandMock
+             var mockGateway = new StoreGatewayHandMock
                                    {
                                        DefaultIsPurchasedValue = true,
                                        OddOneOutInAppOfferNameToReturnNotDefaultValue =
@@ -132,7 +132,7 @@ namespace InAppPurchaseToggle.Tests
 
              var sut = new MultiFeatureWith123Instances()
              {
-                 WindowsStoreGateway = mockGateway
+                 StoreGateway = mockGateway
              };
 
              var allPurchased = sut.IsAllPurchased();
@@ -144,12 +144,12 @@ namespace InAppPurchaseToggle.Tests
          [Fact]
          public void ShouldCalculateIfAllInstancesHaveBeenPurchased()
          {
-             var mockGateway = new WindowsStoreGatewayMoqaLate();
+             var mockGateway = new StoreGatewayMoqaLate();
              mockGateway.IsPurchasedSetReturnValue(true);
 
              var sut = new MultiFeatureWith123Instances()
              {
-                 WindowsStoreGateway = mockGateway
+                 StoreGateway = mockGateway
              };
 
              var allPurchased = sut.IsAllPurchased();
@@ -161,7 +161,7 @@ namespace InAppPurchaseToggle.Tests
          [Fact]
          public void ShouldCalculateNextLowestUnPurchased()
          {
-             var mockGateway = new WindowsStoreGatewayHandMock
+             var mockGateway = new StoreGatewayHandMock
              {
                  DefaultIsPurchasedValue = true,
                  OddOneOutInAppOfferNameToReturnNotDefaultValue =
@@ -170,7 +170,7 @@ namespace InAppPurchaseToggle.Tests
 
              var sut = new MultiFeatureWith123Instances()
              {
-                 WindowsStoreGateway = mockGateway
+                 StoreGateway = mockGateway
              };
 
              var nextUnpurchasedInstance = sut.GetNextLowestUnpurchasedInstance();
@@ -182,12 +182,12 @@ namespace InAppPurchaseToggle.Tests
          [Fact]
          public void ShouldCalculateNextLowestUnPurchasedWhenAllHaveBeenPurchased()
          {
-             var mockGateway = new WindowsStoreGatewayMoqaLate();
+             var mockGateway = new StoreGatewayMoqaLate();
              mockGateway.IsPurchasedSetReturnValue(true);
 
              var sut = new MultiFeatureWith123Instances()
              {
-                 WindowsStoreGateway = mockGateway
+                 StoreGateway = mockGateway
              };
 
              var nextUnpurchasedInstance = sut.GetNextLowestUnpurchasedInstance();
@@ -199,12 +199,12 @@ namespace InAppPurchaseToggle.Tests
          [Fact]
          public void ShouldUseCustomFormatterIfSetInDerivedToggle()
          {
-             var mockGateway = new WindowsStoreGatewayMoqaLate();
+             var mockGateway = new StoreGatewayMoqaLate();
              mockGateway.IsPurchasedSetReturnValue(true);
 
              var sut = new MultiFeatureWithNonDefualtFormatter()
              {
-                 WindowsStoreGateway = mockGateway
+                 StoreGateway = mockGateway
              };
 
              var confuguredFormatter = sut.NameInstanceFormatter;

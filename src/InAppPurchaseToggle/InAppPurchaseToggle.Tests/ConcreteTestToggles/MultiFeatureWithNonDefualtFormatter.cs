@@ -4,7 +4,7 @@ namespace InAppPurchaseToggle.Tests.ConcreteTestToggles
 {
     public class MultiFeatureWithNonDefualtFormatter : RepeatPurchaseToggleBase
     {
-        protected override int SetNumberOfRepeats()
+        protected override int SetAvailableStoreInstances()
         {
             return 1;
         }

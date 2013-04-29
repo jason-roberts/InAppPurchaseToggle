@@ -2,7 +2,7 @@
 
 namespace InAppPurchaseToggle
 {
-    public class ToggleToInAppOfferNameMapper : IToggleToInAppOfferNameMapper
+    public class SingleToggleToStoreInAppOfferNameMapper : ISingleToggleToStoreInAppOfferNameMapper
     {
         public string Map(Type concreteToggleType)
         {

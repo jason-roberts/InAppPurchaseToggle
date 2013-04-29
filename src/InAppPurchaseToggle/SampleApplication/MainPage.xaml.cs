@@ -17,7 +17,7 @@ namespace SampleApplication
             
 #if DEBUG            
             // By default the feature will use the real store gateway, for testing this can be overridden
-            inAppFeature1.WindowsStoreGateway = new SimulatedAlwaysPurchasedGateway();
+            inAppFeature1.StoreGateway = new SimulatedAlwaysPurchasedStoreGateway();
 #endif
 
             Feature1PurchaseStatus.Text = inAppFeature1.IsPurchased.ToString();
@@ -25,7 +25,7 @@ namespace SampleApplication
 
             var inAppFeature2 = new Feature2();
 #if DEBUG            
-            inAppFeature2.WindowsStoreGateway = new SimulatedNeverPurchasedGateway();
+            inAppFeature2.StoreGateway = new SimulatedNeverPurchasedStoreGateway();
 #endif
 
             Feature2PurchaseStatus.Text = inAppFeature2.IsPurchased.ToString();

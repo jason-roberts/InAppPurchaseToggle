@@ -1,6 +1,6 @@
 ﻿namespace InAppPurchaseToggle
 {
-    public class NameNumberFormatter: IRepeatPurchaseToggleNameInstanceFormatter
+    public class RepeatPurchaseNameNumberFormatter: IRepeatPurchaseToggleNameInstanceFormatter
     {
         public string Format(string toggleName, int repeatInstanceNumber)
         {

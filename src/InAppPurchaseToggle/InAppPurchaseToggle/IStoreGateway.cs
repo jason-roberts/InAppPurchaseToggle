@@ -1,6 +1,6 @@
 ﻿namespace InAppPurchaseToggle
 {
-    public interface IWindowsStoreGateway
+    public interface IStoreGateway
     {
         bool IsPurchased(string inAppOfferName);
     }

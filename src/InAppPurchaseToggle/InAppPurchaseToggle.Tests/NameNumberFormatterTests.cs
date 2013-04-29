@@ -7,7 +7,7 @@ namespace InAppPurchaseToggle.Tests
         [Fact]
         public void ShouldAppendInstanceNumberAfterUnderscore()
         {
-            var sut = new NameNumberFormatter();
+            var sut = new RepeatPurchaseNameInstanceFormatter();
 
             var inAppOfferFullName = sut.Format("Coin", 34);
 

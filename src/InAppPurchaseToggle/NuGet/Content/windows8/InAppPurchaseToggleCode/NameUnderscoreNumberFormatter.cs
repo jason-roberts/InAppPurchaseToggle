@@ -2,9 +2,9 @@
 {
     public class NameUnderscoreNumberFormatter: IRepeatPurchaseToggleNameInstanceFormatter
     {
-        public string Format(string toggleName, int instanceNumber)
+        public string Format(string storeInAppOfferBaseName, int repeatInstanceNumber)
         {
-            return toggleName + "_" + instanceNumber;
+            return storeInAppOfferBaseName + "_" + repeatInstanceNumber;
         }
     }
 }

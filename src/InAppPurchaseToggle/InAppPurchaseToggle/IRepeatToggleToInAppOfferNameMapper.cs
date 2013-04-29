@@ -2,6 +2,6 @@
 {
     public interface IRepeatPurchaseToggleNameInstanceFormatter
     {
-        string Format(string toggleName, int instanceNumber);
+        string Format(string storeInAppOfferBaseName, int repeatInstanceNumber);
     }
 }

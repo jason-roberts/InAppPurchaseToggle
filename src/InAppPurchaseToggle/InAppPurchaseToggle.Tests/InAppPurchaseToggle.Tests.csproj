@@ -117,13 +117,13 @@
     <Compile Include="NameNumberFormatterTests.cs" />
     <Compile Include="ToggleTests.cs" />
     <Compile Include="RepeatToggleTests.cs" />
-    <Compile Include="HandCodedMocks\WindowsStoreGatewayHandMock.cs" />
+    <Compile Include="HandCodedMocks\StoreGatewayHandMock.cs" />
     <Compile Include="MoqaLateGeneratedMocks\RepeatToggleInstanceNumberConcatinatorMoqaLate.cs" />
-    <Compile Include="MoqaLateGeneratedMocks\ToggleToInAppOfferNameMapperMoqaLate.cs" />
+    <Compile Include="MoqaLateGeneratedMocks\SingleToggleToStoreInAppOfferNameMapperMoqaLate.cs" />
     <Compile Include="NameUnderscoreNumberFormatterTests.cs" />
     <Compile Include="SimulatedNeverPurchasedGatewayTests.cs" />
     <Compile Include="SimulatedAlwaysPurchasedGatewayTests.cs" />
-    <Compile Include="MoqaLateGeneratedMocks\WindowsStoreGatewayMoqaLate.cs" />
+    <Compile Include="MoqaLateGeneratedMocks\StoreGatewayMoqaLate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ConcreteTestToggles\MultiFeatureWithNegativeRepeats.cs" />
     <Compile Include="ConcreteTestToggles\MultiFeatureWithZeroRepeats.cs" />

@@ -4,20 +4,20 @@
     {
         protected SinglePurchaseToggleBase()
         {
-            WindowsStoreGateway = new RealWindowsStoreGateway();
-            InAppOfferNameMapper = new ToggleToInAppOfferNameMapper();
+            StoreGateway = new RealStoreGateway();
+            StoreInAppOfferNameMapper = new SingleToggleToStoreInAppOfferNameMapper();
         }
 
-        public IWindowsStoreGateway WindowsStoreGateway { get; set; }
-        public IToggleToInAppOfferNameMapper InAppOfferNameMapper { get; set; }
+        public IStoreGateway StoreGateway { get; set; }
+        public ISingleToggleToStoreInAppOfferNameMapper StoreInAppOfferNameMapper { get; set; }
 
         public bool IsPurchased
         {
             get
             {
-                var inAppOfferName = InAppOfferNameMapper.Map(this.GetType());
+                var inAppOfferName = StoreInAppOfferNameMapper.Map(this.GetType());
 
-                var isOfferPurchased = WindowsStoreGateway.IsPurchased(inAppOfferName);
+                var isOfferPurchased = StoreGateway.IsPurchased(inAppOfferName);
 
                 return isOfferPurchased;
             }

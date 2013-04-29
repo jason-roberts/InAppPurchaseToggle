@@ -2,7 +2,7 @@
 {
     public class MultiFeatureWithNegativeRepeats : RepeatPurchaseToggleBase
     {
-        protected override int SetNumberOfRepeats()
+        protected override int SetAvailableStoreInstances()
         {
             return -1;
         }
