@@ -10,9 +10,10 @@ namespace InAppPurchaseToggle
         {
             WindowsStoreGateway = new RealWindowsStoreGateway();
             InAppOfferNameMapper = new ToggleToInAppOfferNameMapper();
-            ToggleInstanceNumberFormatter = new NameUnderscoreNumberFormatter();
+            
 // ReSharper disable DoNotCallOverridableMethodsInConstructor
             _totalRepeatsAvailable = SetNumberOfRepeats();
+            ToggleInstanceNumberFormatter = SetInstanceNumberFormatter();
 // ReSharper restore DoNotCallOverridableMethodsInConstructor
 
             if (_totalRepeatsAvailable < 1)
@@ -20,6 +21,16 @@ namespace InAppPurchaseToggle
                 throw new InvalidOperationException(
                     "A repeat toggle must have more than zero instances. Ensure you have correctly implemented the SetNumberOfRepeats method in your concrete toggle.");
             }
+
+            if (ToggleInstanceNumberFormatter == null)
+            {
+                throw new NullReferenceException("A custom formatter cannot be null.");
+            }
+        }
+
+        protected virtual IRepeatToggleInstanceNumberConcatinator SetInstanceNumberFormatter()
+        {
+            return  new NameUnderscoreNumberFormatter();
         }
 
 

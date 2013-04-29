@@ -194,5 +194,29 @@ namespace InAppPurchaseToggle.Tests
 
              Assert.Equal(-1, nextUnpurchasedInstance);
          }
+
+
+         [Fact]
+         public void ShouldUseCustomFormatterIfSetInDerivedToggle()
+         {
+             var mockGateway = new WindowsStoreGatewayMoqaLate();
+             mockGateway.IsPurchasedSetReturnValue(true);
+
+             var sut = new MultiFeatureWithNonDefualtFormatter()
+             {
+                 WindowsStoreGateway = mockGateway
+             };
+
+             var confuguredFormatter = sut.ToggleInstanceNumberFormatter;
+
+             Assert.IsType(typeof(RepeatToggleInstanceNumberConcatinatorMoqaLate), confuguredFormatter);
+         }
+
+
+         [Fact]
+         public void ShouldErrorWhenNullUseCustomFormatterSetInDerivedToggle()
+         {
+             Assert.Throws<NullReferenceException>(() => { new MultiFeatureWithNullFormatter(); });
+         }
     }
 }
