@@ -5,7 +5,7 @@ namespace InAppPurchaseToggle.Tests
     public class NameUnderscoreNumberFormatterTests
     {
         [Fact]
-        public void ShouldAppendInstanceNumber()
+        public void ShouldAppendInstanceNumberAfterUnderscore()
         {
             var sut = new NameUnderscoreNumberFormatter();
 

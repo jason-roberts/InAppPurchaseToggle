@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace InAppPurchaseToggle
+﻿namespace InAppPurchaseToggle
 {
     public class NameUnderscoreNumberFormatter: IRepeatToggleInstanceNumberConcatinator
     {

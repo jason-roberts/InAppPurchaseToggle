@@ -14,6 +14,12 @@ namespace InAppPurchaseToggle
 // ReSharper disable DoNotCallOverridableMethodsInConstructor
             _totalRepeatsAvailable = SetNumberOfRepeats();
 // ReSharper restore DoNotCallOverridableMethodsInConstructor
+
+            if (_totalRepeatsAvailable < 1)
+            {
+                throw new InvalidOperationException(
+                    "A repeat toggle must have more than zero instances. Ensure you have correctly implemented the SetNumberOfRepeats method in your concrete toggle.");
+            }
         }
 
 
@@ -25,12 +31,7 @@ namespace InAppPurchaseToggle
         public int TotalRepeatsAvailable
         {
             get
-            {
-                if (_totalRepeatsAvailable < 1)
-                {
-                    throw new InvalidOperationException(
-                        "A multi toggle must have more than zero instances. Ensure you have correctly implemented the SetNumberOfRepeats method in your concrete toggle.");
-                }
+            {      
                 return _totalRepeatsAvailable;
             }
         }

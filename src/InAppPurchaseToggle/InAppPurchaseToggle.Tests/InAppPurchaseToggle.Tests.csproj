@@ -112,8 +112,8 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConcreteToggleTests.cs" />
-    <Compile Include="ConcreteRepeatToggleTests.cs" />
+    <Compile Include="ToggleTests.cs" />
+    <Compile Include="RepeatToggleTests.cs" />
     <Compile Include="HandCodedMocks\WindowsStoreGatewayHandMock.cs" />
     <Compile Include="MoqaLateGeneratedMocks\RepeatToggleInstanceNumberConcatinatorMoqaLate.cs" />
     <Compile Include="MoqaLateGeneratedMocks\ToggleToInAppOfferNameMapperMoqaLate.cs" />
@@ -122,11 +122,11 @@
     <Compile Include="SimulatedAlwaysPurchasedGatewayTests.cs" />
     <Compile Include="MoqaLateGeneratedMocks\WindowsStoreGatewayMoqaLate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestFeatures\MultiFeatureWithNegativeRepeats.cs" />
-    <Compile Include="TestFeatures\MultiFeatureWithZeroRepeats.cs" />
-    <Compile Include="TestFeatures\MultiFeatureWith123Instances.cs" />
-    <Compile Include="TestFeatures\Feature1.cs" />
-    <Compile Include="TestFeatures\Feature2.cs" />
+    <Compile Include="ConcreteTestToggles\MultiFeatureWithNegativeRepeats.cs" />
+    <Compile Include="ConcreteTestToggles\MultiFeatureWithZeroRepeats.cs" />
+    <Compile Include="ConcreteTestToggles\MultiFeatureWith123Instances.cs" />
+    <Compile Include="ConcreteTestToggles\Feature1.cs" />
+    <Compile Include="ConcreteTestToggles\Feature2.cs" />
     <Compile Include="ToggleToInAppOfferNameMapperTests.cs" />
   </ItemGroup>
   <ItemGroup>

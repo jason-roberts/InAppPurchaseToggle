@@ -1,4 +1,4 @@
-﻿namespace InAppPurchaseToggle.Tests.TestFeatures
+﻿namespace InAppPurchaseToggle.Tests.ConcreteTestToggles
 {
     public class MultiFeatureWithNegativeRepeats : RepeatToggleBase
     {

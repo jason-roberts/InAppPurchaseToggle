@@ -1,6 +1,6 @@
 ﻿namespace InAppPurchaseToggle.Tests.HandCodedMocks
 {
-    // Ideally MoqaLate would have more features so hand mocks are unnecessary
+    // Ideally MoqaLate would have more features so hand mocks would be unnecessary
     internal class WindowsStoreGatewayHandMock : IWindowsStoreGateway
     {
         public bool DefaultIsPurchasedValue { get; set; }
