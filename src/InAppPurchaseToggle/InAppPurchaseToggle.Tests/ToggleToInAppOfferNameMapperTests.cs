@@ -5,7 +5,7 @@ namespace InAppPurchaseToggle.Tests
 {
     public class ToggleToInAppOfferNameMapperTests
     {
-        [Fact]
+        [Fact] 
         public void ShouldMapName()
         {
             var sut = new SingleToggleToStoreInAppOfferNameMapper();
