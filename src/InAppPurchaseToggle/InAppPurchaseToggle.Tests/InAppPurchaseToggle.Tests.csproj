@@ -112,24 +112,24 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConcreteTestToggles\MultiFeatureWithNullFormatter.cs" />
-    <Compile Include="ConcreteTestToggles\MultiFeatureWithNonDefualtFormatter.cs" />
+    <Compile Include="ConcreteTestToggles\RepeatPurchaseWithNullFormatter.cs" />
+    <Compile Include="ConcreteTestToggles\RepeatPurchaseWithNonDefualtFormatter.cs" />
+    <Compile Include="MoqaLateGeneratedMocks\RepeatPurchaseToggleNameInstanceFormatterMoqaLate.cs" />
+    <Compile Include="MoqaLateGeneratedMocks\SingleToggleToStoreInAppOfferNameMapperMoqaLate.cs" />
+    <Compile Include="MoqaLateGeneratedMocks\StoreGatewayMoqaLate.cs" />
     <Compile Include="NameNumberFormatterTests.cs" />
     <Compile Include="ToggleTests.cs" />
     <Compile Include="RepeatToggleTests.cs" />
     <Compile Include="HandCodedMocks\StoreGatewayHandMock.cs" />
-    <Compile Include="MoqaLateGeneratedMocks\RepeatToggleInstanceNumberConcatinatorMoqaLate.cs" />
-    <Compile Include="MoqaLateGeneratedMocks\SingleToggleToStoreInAppOfferNameMapperMoqaLate.cs" />
     <Compile Include="NameUnderscoreNumberFormatterTests.cs" />
-    <Compile Include="SimulatedNeverPurchasedGatewayTests.cs" />
-    <Compile Include="SimulatedAlwaysPurchasedGatewayTests.cs" />
-    <Compile Include="MoqaLateGeneratedMocks\StoreGatewayMoqaLate.cs" />
+    <Compile Include="SimulatedNeverPurchasedStoreGatewayTests.cs" />
+    <Compile Include="SimulatedAlwaysPurchasedStoreGatewayTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ConcreteTestToggles\MultiFeatureWithNegativeRepeats.cs" />
-    <Compile Include="ConcreteTestToggles\MultiFeatureWithZeroRepeats.cs" />
-    <Compile Include="ConcreteTestToggles\MultiFeatureWith123Instances.cs" />
-    <Compile Include="ConcreteTestToggles\Feature1.cs" />
-    <Compile Include="ConcreteTestToggles\Feature2.cs" />
+    <Compile Include="ConcreteTestToggles\RepeatPurchaseWithNegativeInstances.cs" />
+    <Compile Include="ConcreteTestToggles\RepeatPurchaseWithZeroInstances.cs" />
+    <Compile Include="ConcreteTestToggles\RepeatPurchaseWith123Instances.cs" />
+    <Compile Include="ConcreteTestToggles\SinglePurchase1.cs" />
+    <Compile Include="ConcreteTestToggles\SinglePURCHASE2.cs" />
     <Compile Include="ToggleToInAppOfferNameMapperTests.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -158,6 +158,7 @@
       <Name>InAppPurchaseToggle</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>
   </PropertyGroup>

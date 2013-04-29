@@ -2,9 +2,9 @@
 {
     public class NameNumberFormatter: IRepeatPurchaseToggleNameInstanceFormatter
     {
-        public string Format(string toggleName, int repeatInstanceNumber)
+        public string Format(string storeInAppOfferBaseName, int repeatInstanceNumber)
         {
-            return toggleName + repeatInstanceNumber;
+            return storeInAppOfferBaseName + repeatInstanceNumber;
         }
     }
 }

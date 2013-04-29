@@ -11,7 +11,7 @@ namespace InAppPurchaseToggle.Tests
         [Fact]
         public void ShouldDefaultToRealWindowsStoreGateway()
         {
-            var sut = new MultiFeatureWith123Instances();
+            var sut = new RepeatPurchaseWith123Instances();
 
             Assert.IsType(typeof (RealStoreGateway), sut.StoreGateway);
         }
@@ -20,7 +20,7 @@ namespace InAppPurchaseToggle.Tests
         [Fact]
         public void ShouldDefaultToUnderscoreIntanceNumberFormatter()
         {
-            var sut = new MultiFeatureWith123Instances();
+            var sut = new RepeatPurchaseWith123Instances();
 
             Assert.IsType(typeof(NameUnderscoreNumberFormatter), sut.NameInstanceFormatter);
         }
@@ -28,7 +28,7 @@ namespace InAppPurchaseToggle.Tests
         [Fact]
         public void ShouldReturnTotalOffersAvailable()
         {
-            var sut = new MultiFeatureWith123Instances();
+            var sut = new RepeatPurchaseWith123Instances();
 
             var totalOffers = sut.AvailableStoreInstances;
             
@@ -37,16 +37,16 @@ namespace InAppPurchaseToggle.Tests
 
 
         [Fact]
-        public void ShouldErrorIfToggleSetsZeroRepeats()
+        public void ShouldErrorIfToggleSetsZeroInstances()
         {
-            Assert.Throws<InvalidOperationException>(() => { new MultiFeatureWithZeroRepeats(); });
+            Assert.Throws<InvalidOperationException>(() => { new RepeatPurchaseWithZeroInstances(); });
         }
 
 
         [Fact]
-        public void ShouldErrorIfDerivedToggleWithNegativeRepeats()
+        public void ShouldErrorIfDerivedToggleWithNegativeInstances()
         {
-            Assert.Throws<InvalidOperationException>(() => { new MultiFeatureWithNegativeRepeats(); });
+            Assert.Throws<InvalidOperationException>(() => { new RepeatPurchaseWithNegativeInstances(); });
         }
         
 
@@ -56,7 +56,7 @@ namespace InAppPurchaseToggle.Tests
             var mockGateway = new StoreGatewayMoqaLate();
             mockGateway.IsPurchasedSetReturnValue(true);
 
-            var sut = new MultiFeatureWith123Instances()
+            var sut = new RepeatPurchaseWith123Instances()
                           {
                               StoreGateway = mockGateway
                           };
@@ -75,7 +75,7 @@ namespace InAppPurchaseToggle.Tests
 
              var mockConcat = new  RepeatPurchaseToggleNameInstanceFormatterMoqaLate();
 
-             var sut = new MultiFeatureWith123Instances()
+             var sut = new RepeatPurchaseWith123Instances()
              {
                  StoreGateway = mockGateway,
                  NameInstanceFormatter = mockConcat
@@ -83,7 +83,7 @@ namespace InAppPurchaseToggle.Tests
 
              sut.GetTotalPurchased();
 
-             Assert.Equal(123, mockConcat.CombineTimesCalled());
+             Assert.Equal(123, mockConcat.FormatTimesCalled());
          }
         
 
@@ -93,7 +93,7 @@ namespace InAppPurchaseToggle.Tests
              var mockGateway = new StoreGatewayMoqaLate();
              mockGateway.IsPurchasedSetReturnValue(true);
 
-             var sut = new MultiFeatureWith123Instances()
+             var sut = new RepeatPurchaseWith123Instances()
              {
                  StoreGateway = mockGateway
              };
@@ -116,7 +116,7 @@ namespace InAppPurchaseToggle.Tests
 
              // TODO: this should prob be in sep test
              // Due to current limitations with MoqaLate, we can only get what the last call was for a particular method
-             mockGateway.IsPurchasedWasCalledWith("MultiFeatureWith123Instances_123");
+             mockGateway.IsPurchasedWasCalledWith("RepeatPurchaseWith123Instances_123");
          }
 
 
@@ -127,10 +127,10 @@ namespace InAppPurchaseToggle.Tests
                                    {
                                        DefaultIsPurchasedValue = true,
                                        OddOneOutInAppOfferNameToReturnNotDefaultValue =
-                                           "MultiFeatureWith123Instances_99"
+                                           "RepeatPurchaseWith123Instances_99"
                                    };
 
-             var sut = new MultiFeatureWith123Instances()
+             var sut = new RepeatPurchaseWith123Instances()
              {
                  StoreGateway = mockGateway
              };
@@ -147,7 +147,7 @@ namespace InAppPurchaseToggle.Tests
              var mockGateway = new StoreGatewayMoqaLate();
              mockGateway.IsPurchasedSetReturnValue(true);
 
-             var sut = new MultiFeatureWith123Instances()
+             var sut = new RepeatPurchaseWith123Instances()
              {
                  StoreGateway = mockGateway
              };
@@ -165,10 +165,10 @@ namespace InAppPurchaseToggle.Tests
              {
                  DefaultIsPurchasedValue = true,
                  OddOneOutInAppOfferNameToReturnNotDefaultValue =
-                     "MultiFeatureWith123Instances_99"
+                     "RepeatPurchaseWith123Instances_99"
              };
 
-             var sut = new MultiFeatureWith123Instances()
+             var sut = new RepeatPurchaseWith123Instances()
              {
                  StoreGateway = mockGateway
              };
@@ -180,12 +180,12 @@ namespace InAppPurchaseToggle.Tests
 
 
          [Fact]
-         public void ShouldCalculateNextLowestUnPurchasedWhenAllHaveBeenPurchased()
+         public void ShouldGracefullyHandleNextLowestUnPurchasedWhenAllHaveBeenPurchased()
          {
              var mockGateway = new StoreGatewayMoqaLate();
              mockGateway.IsPurchasedSetReturnValue(true);
 
-             var sut = new MultiFeatureWith123Instances()
+             var sut = new RepeatPurchaseWith123Instances()
              {
                  StoreGateway = mockGateway
              };
@@ -202,7 +202,7 @@ namespace InAppPurchaseToggle.Tests
              var mockGateway = new StoreGatewayMoqaLate();
              mockGateway.IsPurchasedSetReturnValue(true);
 
-             var sut = new MultiFeatureWithNonDefualtFormatter()
+             var sut = new RepeatPurchaseWithNonDefualtFormatter()
              {
                  StoreGateway = mockGateway
              };
@@ -216,7 +216,7 @@ namespace InAppPurchaseToggle.Tests
          [Fact]
          public void ShouldErrorWhenNullUseCustomFormatterSetInDerivedToggle()
          {
-             Assert.Throws<NullReferenceException>(() => { new MultiFeatureWithNullFormatter(); });
+             Assert.Throws<NullReferenceException>(() => { new RepeatPurchaseWithNullFormatter(); });
          }
     }
 }

@@ -1,10 +1,10 @@
 ﻿namespace InAppPurchaseToggle.Tests.ConcreteTestToggles
 {
-    public class MultiFeatureWithZeroRepeats : RepeatPurchaseToggleBase
+    public class RepeatPurchaseWith123Instances : RepeatPurchaseToggleBase
     {
         protected override int SetAvailableStoreInstances()
         {
-            return 0;
+            return 123;
         }
     }
 }

@@ -10,11 +10,11 @@ namespace InAppPurchaseToggle.Tests
         {
             var sut = new SingleToggleToStoreInAppOfferNameMapper();
 
-            var testToggle = new Feature1();
+            var testToggle = new SinglePurchase1();
 
             var mappedOfferName = sut.Map(testToggle.GetType());
 
-            Assert.Equal("Feature1", mappedOfferName);
+            Assert.Equal("SinglePurchase1", mappedOfferName);
         }
 
 
@@ -23,11 +23,11 @@ namespace InAppPurchaseToggle.Tests
         {
             var sut = new SingleToggleToStoreInAppOfferNameMapper();
 
-            var testToggle = new FEATURE2();
+            var testToggle = new SinglePURCHASE2();
 
             var mappedOfferName = sut.Map(testToggle.GetType());
 
-            Assert.Equal("FEATURE2", mappedOfferName);
+            Assert.Equal("SinglePURCHASE2", mappedOfferName);
         }
     }
 }

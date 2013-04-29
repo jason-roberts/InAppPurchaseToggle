@@ -9,7 +9,7 @@ namespace InAppPurchaseToggle.Tests
         [Fact]
         public void ShouldDefaultToRealWindowsStoreGateway()
         {
-            var sut = new Feature1();
+            var sut = new SinglePurchase1();
 
             Assert.IsType(typeof (RealStoreGateway), sut.StoreGateway);
         }
@@ -21,14 +21,14 @@ namespace InAppPurchaseToggle.Tests
             var mockGateway = new StoreGatewayMoqaLate();
             mockGateway.IsPurchasedSetReturnValue(true);
 
-            var sut = new Feature1
+            var sut = new SinglePurchase1
                           {
                               StoreGateway = mockGateway
                           };
 
             var result = sut.IsPurchased;
 
-            Assert.True(mockGateway.IsPurchasedWasCalledWith("Feature1"));
+            Assert.True(mockGateway.IsPurchasedWasCalledWith("SinglePurchase1"));
             Assert.True(result);
         }
 
@@ -38,7 +38,7 @@ namespace InAppPurchaseToggle.Tests
         {
             var mockNameMapper = new SingleToggleToStoreInAppOfferNameMapperMoqaLate();
 
-            var sut = new Feature1
+            var sut = new SinglePurchase1
                           {
                               StoreGateway = new StoreGatewayMoqaLate(),
                               StoreInAppOfferNameMapper = mockNameMapper

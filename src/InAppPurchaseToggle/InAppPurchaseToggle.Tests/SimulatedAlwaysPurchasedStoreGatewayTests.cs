@@ -3,12 +3,12 @@ using Xunit;
 
 namespace InAppPurchaseToggle.Tests
 {
-    public class SimulatedAlwaysPurchasedGatewayTests
+    public class SimulatedAlwaysPurchasedStoreGatewayTests
     {
         [Fact]
         public void ShouldAlwaysReturnInAppHasBeenPurchased()
         {
-            var sut = new Feature1 {StoreGateway = new SimulatedAlwaysPurchasedStoreGateway()};
+            var sut = new SinglePurchase1 {StoreGateway = new SimulatedAlwaysPurchasedStoreGateway()};
 
             Assert.True(sut.IsPurchased);
         }

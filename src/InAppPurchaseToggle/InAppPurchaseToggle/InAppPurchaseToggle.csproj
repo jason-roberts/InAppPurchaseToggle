@@ -99,7 +99,7 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="RepeatPurchaseNameInstanceFormatter.cs" />
+    <Compile Include="NameNumberFormatter.cs" />
     <Compile Include="IRepeatToggleToInAppOfferNameMapper.cs" />
     <Compile Include="NameUnderscoreNumberFormatter.cs" />
     <Compile Include="RepeatPurchaseToggleBase.cs" />

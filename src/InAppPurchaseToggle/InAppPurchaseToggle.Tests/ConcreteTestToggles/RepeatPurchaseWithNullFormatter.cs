@@ -1,6 +1,6 @@
 ﻿namespace InAppPurchaseToggle.Tests.ConcreteTestToggles
 {
-    public class MultiFeatureWithNullFormatter : RepeatPurchaseToggleBase
+    public class RepeatPurchaseWithNullFormatter : RepeatPurchaseToggleBase
     {
         protected override int SetAvailableStoreInstances()
         {
