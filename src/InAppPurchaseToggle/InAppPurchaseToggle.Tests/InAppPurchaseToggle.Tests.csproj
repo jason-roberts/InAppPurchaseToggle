@@ -114,7 +114,7 @@
   <ItemGroup>
     <Compile Include="ConcreteTestToggles\MultiFeatureWithNullFormatter.cs" />
     <Compile Include="ConcreteTestToggles\MultiFeatureWithNonDefualtFormatter.cs" />
-    <Compile Include="NameNumberFormatterTests.cs" />
+    <Compile Include="Copy of NameUnderscoreNumberFormatterTests.cs" />
     <Compile Include="ToggleTests.cs" />
     <Compile Include="RepeatToggleTests.cs" />
     <Compile Include="HandCodedMocks\WindowsStoreGatewayHandMock.cs" />
