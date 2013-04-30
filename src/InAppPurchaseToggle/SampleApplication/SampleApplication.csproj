@@ -111,6 +111,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Coin.cs" />
     <Compile Include="Feature2.cs" />
     <Compile Include="Feature1.cs" />
     <Compile Include="MainPage.xaml.cs">
