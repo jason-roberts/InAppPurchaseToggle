@@ -2,6 +2,9 @@
 
 namespace InAppPurchaseToggle
 {
+    /// <summary>
+    /// Testing gateway that always pretends that a purchase has been made
+    /// </summary>
 #if DEBUG
     [Obsolete("Be careful not to accidentally use this in the final app")]
 #endif

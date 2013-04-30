@@ -2,6 +2,9 @@
 
 namespace InAppPurchaseToggle
 {
+    /// <summary>
+    /// Live Windows Store gateway
+    /// </summary>
     public class RealStoreGateway : IStoreGateway
     {
         public bool IsPurchased(string inAppOfferName)
