@@ -131,6 +131,7 @@
   <PropertyGroup>
     <PostBuildEvent>$(ProjectDir)\MoqaLateCommandLine\MoqaLate.exe "$(SolutionDir)$(ProjectName)" "$(SolutionDir)InAppPurchaseToggle.Tests\MoqaLateGeneratedMocks"
 
+del $(SolutionDir)NuGet\Content\windows8\InAppPurchaseToggleCode\*.cs
 copy $(ProjectDir)*.cs $(SolutionDir)NuGet\Content\windows8\InAppPurchaseToggleCode
 </PostBuildEvent>
   </PropertyGroup>
